@@ -1,0 +1,13 @@
+| Chapter | civilisation | moral* |
+|---------|--------------|--------|
+| Preface | 52 | 19 |
+| Introduction | 27 | 16 |
+| Ch1 - Spirit | 54 | 133 |
+| Ch2 - Chinese Woman | 13 | 8 |
+| Ch3 - Chinese Language | 7 | 0 |
+| Ch4 - John Smith | 0 | 0 |
+| Ch5 - Great Sinologue | 0 | 8 |
+| Ch6 - Scholarship I | 0 | 0 |
+| Ch7 - Scholarship II | 1 | 4 |
+| Appendix | 7 | 1 |
+| **Total** | **161** | **189** |

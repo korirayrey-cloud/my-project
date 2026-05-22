@@ -1,0 +1,72 @@
+D:\20074\代码>python lin_analysis.py
+正在解析林语堂epub文件...
+解析完成，共提取 813,360 字符
+============================================================
+林语堂《My Country and My People》文本分析报告
+============================================================
+
+【基本统计】
+  总字符数: 813,360
+  总词数: 141,692
+
+【关键词频率】
+错误: '<' not supported between instances of 'list' and 'int'
+请确认文件路径正确，且epub文件未损坏
+
+D:\20074\代码>python lin_analysis.py
+正在解析林语堂epub文件...
+解析完成，共提取 813,360 字符
+============================================================
+林语堂《My Country and My People》文本分析报告
+============================================================
+
+【基本统计】
+  总字符数: 813,360
+  总词数: 141,692
+
+【关键词频率】
+  chinese: 1347
+  life: 543
+  man: 532
+  people: 502
+  woman: 472
+  west: 262
+  confucius: 230
+  nation: 195
+  spirit: 191
+  character: 183
+  family: 171
+  nature: 145
+  home: 101
+  moral: 100
+  tao: 93
+  buddh: 86
+  society: 66
+  virtue: 60
+  civilisation: 45
+  east: 27
+
+【情感倾向】
+  正面句子比例: 84.58%
+  负面句子比例: 15.42%
+  情感得分 (-1到1): 0.692
+
+【Moral关键词上下文示例（前3条）】
+  1. ...She has led a life of the instinct; she has adjusted herself to economic, political and social environments that might have spelled disaster to a less robust racial constitution; she has received her ...
+  2. ...There are her arts and philosophies, her paintings and her theatres, which provide the common people with all the moral notions of good and evil, and that tremendous mass of folk literature and folklo...
+  3. ...1 He feels happy when he learns that the Chinese are beginning to observe Christmas and make progress, and feels amazed when he is not understood in English; he walks as if the whole lot of them did n...
+
+【章节分布（基于关键词热度）】
+  Logic: 680
+  Religion: 620
+  Imagination: 440
+  Buddhism: 370
+  Humour: 350
+  Taoism: 310
+  Literary: 280
+  Patience: 260
+  Social_Political: 250
+  Indifference: 220
+
+数值结果已保存到 lin_yutang_results.csv
+Moral上下文已保存到 lin_moral_contexts.txt
