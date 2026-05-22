@@ -14,9 +14,8 @@ Key Findings
 - Lin Yutang: High frequency of concrete terms (Chinese / people), even distribution of moral vocabulary, we/they ratio = 2.7 → empathetic discourse
  
 Repository Structure
- 
-├── code/          # Web visualization & text processing code
-├── database/      # Raw texts & research dataset
-├── images/        # Charts, word clouds, web images
-├── video/         # AI-generated demo & presentation videos
+├── code/        # Web visualization & text processing code
+├── database/    # Raw texts & research dataset
+├── images/      # Charts, word clouds, web images
+├── video/       # AI-generated demo & presentation videos
 └── README.md
