@@ -14,16 +14,13 @@ By measuring word frequency, chapter lexical distribution, and we/they pronoun p
 - **Lin Yutang**: High frequency of concrete identity-focused terms (`Chinese` / `people`). Moral vocabulary distributed evenly across all chapters. We/they pronoun ratio = 2.7 → typical empathetic, inclusive discourse pattern
 
 ## Repository Structure
- 
- 
+```text
 my-project/
-├── code/        # Interactive webpage HTML display & Python text processing scripts
-├── database/    # Raw full-text books source files & cleaned structured research datasets
-├── images/      # Visual charts, word clouds, paper figures & webpage display assets
-├── video/       # AI-generated introduction clips & webpage interactive demo videos
-└── README.md    # Project documentation
- 
-plaintext
+├── code/      # Interactive webpage HTML display & Python text processing scripts
+├── database/  # Raw full-text books source files & cleaned structured research datasets
+├── images/    # Visual charts, word clouds, paper figures & webpage display assets
+├── video/     # AI-generated introduction clips & webpage interactive demo videos
+└── README.md  # Project documentation
   
 
 ### Folder Details
