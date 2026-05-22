@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Gallery · Defence or Empathy? | Ku vs Lin Digital Study</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0a0e1a;
+            color: #eef2ff;
+            line-height: 1.5;
+            min-height: 100vh;
+        }
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            background: url('background_china_intellectuals.jpg') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 1;
+        }
+        .content {
+            position: relative;
+            z-index: 2;
+            max-width: 1400px;
+            width: 90%;
+            margin: 0 auto;
+            padding: 24px 24px 40px;
+            display: flex;
+            flex-direction: column;
+            min-height: 95vh;
+            justify-content: space-between;
+        }
+        .top-nav {
+            display: flex;
+            justify-content: flex-end;
+            gap: 40px;
+            margin-bottom: 30px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+        }
+        .nav-link {
+            background: none;
+            border: none;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #f0f3fa;
+            cursor: pointer;
+            font-family: inherit;
+            padding: 4px 0;
+            transition: 0.2s;
+            position: relative;
+            text-decoration: none;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #d4af37;
+            transition: width 0.2s;
+        }
+        .nav-link.active::after,
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        .nav-link.active,
+        .nav-link:hover {
+            color: #ffde9c;
+        }
+        .gallery-wrapper {
+            display: flex;
+            gap: 40px;
+            margin: 20px 0 20px;
+            flex-wrap: wrap;
+        }
+        .gallery-sidebar {
+            flex: 0 0 240px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 28px;
+            padding: 20px 12px;
+            height: fit-content;
+        }
+        .gallery-tab {
+            width: 100%;
+            text-align: left;
+            background: #111830cc;
+            border: 1px solid #d4af374d;
+            border-radius: 40px;
+            padding: 10px 18px;   /* 恢复原始内边距 */
+            margin-bottom: 40px;   /* 间距大 */
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.2s;
+            font-family: inherit;
+            color: #eef2ff;
+            line-height: 1.3;
+            font-size: 1rem;       /* 明确字体大小，不变大 */
+        }
+        .gallery-tab:last-child {
+            margin-bottom: 0;
+        }
+        .gallery-tab.active, .gallery-tab:hover {
+            background: #d4af37;
+            color: #0b1020;
+            border-color: #d4af37;
+        }
+        .gallery-main {
+            flex: 1;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 32px;
+            padding: 24px;
+        }
+        .gallery-desc {
+            background: rgba(212, 175, 55, 0.15);
+            padding: 12px 20px;
+            border-radius: 28px;
+            margin-bottom: 28px;
+            border-left: 4px solid #d4af37;
+            font-size: 0.95rem;
+        }
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 32px;
+            align-items: stretch;
+        }
+        .gallery-card {
+            background: #0f1730cc;
+            border-radius: 20px;
+            overflow: hidden;
+            transition: transform 0.2s;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        .gallery-card:hover {
+            transform: translateY(-4px);
+        }
+        .gallery-card img {
+            width: 100%;
+            aspect-ratio: 4 / 3;
+            object-fit: cover;
+            cursor: pointer;
+            display: block;
+        }
+        .gallery-caption {
+            padding: 14px;
+            font-size: 0.8rem;
+            border-top: 1px solid #d4af3722;
+            background: rgba(0,0,0,0.4);
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .gallery-caption strong {
+            color: #ffde9c;
+            display: block;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+        }
+        .analysis-text {
+            font-size: 0.75rem;
+            color: #cbd5ff;
+            line-height: 1.4;
+        }
+        footer {
+            text-align: center;
+            padding: 30px 0 10px;
+            font-size: 0.8rem;
+            color: #9aa2c0;
+            margin-top: 20px;
+        }
+        @media (max-width: 800px) {
+            .gallery-wrapper { flex-direction: column; }
+            .gallery-sidebar { flex: auto; display: flex; gap: 24px; flex-wrap: wrap; }
+            .gallery-tab {
+                width: auto;
+                margin-bottom: 0;
+                padding: 8px 16px;
+                font-size: 0.95rem;
+            }
+            .top-nav { justify-content: center; gap: 24px; }
+        }
+    </style>
+</head>
+<body>
+<div class="hero">
+    <div class="overlay"></div>
+    <div class="content">
+        <div class="top-nav">
+                <a href="home.html" class="nav-link">Home</a>
+                <a href="gallery.html" class="nav-link active">Gallery</a>
+                <a href="data-visuals.html" class="nav-link">Data & Visuals</a>
+                <a href="discussion-conclusion.html" class="nav-link">Discussion & Conclusion</a>
+        </div>
+
+        <div class="gallery-wrapper">
+            <div class="gallery-sidebar" id="gallerySidebar"></div>
+            <div class="gallery-main" id="galleryMain"></div>
+        </div>
+
+        <footer>© 2026 Li Ke · Lingnan University · MA in Digital History in Global Asia</footer>
+    </div>
+</div>
+
+<script>
+    function setImageSrc(imgElement, path) {
+        if (/\.(jpe?g|png|gif|webp)$/i.test(path)) {
+            imgElement.src = path;
+            imgElement.onerror = () => {
+                imgElement.src = 'https://placehold.co/400x300/111830/d4af37?text=Image+not+found';
+            };
+            return;
+        }
+        const extensions = ['.jpg', '.jpeg', '.png'];
+        let idx = 0;
+        function tryExtension() {
+            if (idx >= extensions.length) {
+                imgElement.src = 'https://placehold.co/400x300/111830/d4af37?text=Image+not+found';
+                return;
+            }
+            const fullPath = path + extensions[idx];
+            imgElement.onerror = () => {
+                idx++;
+                tryExtension();
+            };
+            imgElement.src = fullPath;
+        }
+        tryExtension();
+    }
+
+    const galleryGroups = {
+        portraits: {
+            title: "Ⅰ Portraits · Two Intellectual Temperaments",
+            desc: "Visual records of Ku Hung‑ming and Lin Yutang reflect their contrasting postures: Ku’s stern defiance vs Lin’s genial openness.",
+            items: [
+                { img: "gallery_01.jpeg", caption: "Ku Hung‑ming in youth, late Qing style", analysis: "Traditional attire, stern gaze – Ku’s self‑presentation as a guardian of Confucian values." },
+                { img: "gallery_02.jpeg", caption: "Ku in Western suit, defiant gaze", analysis: "Despite Western dress, his posture and expression signal resistance to cultural assimilation." },
+                { img: "gallery_03.jpeg", caption: "Ku with Rabindranath Tagore, Beijing 1924", analysis: "Meeting of two Eastern thinkers; Ku’s defensive cultural nationalism on display." },
+                { img: "gallery_21", caption: "Lin Yutang in early career", analysis: "Young Lin, already poised as a cultural mediator, warm and accessible." },
+                { img: "gallery_22", caption: "Lin speaking abroad, 1940s", analysis: "Lin’s public engagement with Western audiences – inclusive, humorous, inviting." },
+                { img: "gallery_23", caption: "Bronze statue of Lin Yutang", analysis: "Commemorates his legacy as a bridge between Chinese and Western cultures." }
+            ]
+        },
+        editions: {
+            title: "Ⅱ Book Editions · Material Carriers of Ideas",
+            desc: "Covers and editions of *The Spirit of the Chinese People* and *My Country and My People* show how the texts were presented to Western readers.",
+            items: [
+                { img: "gallery_07.jpg", caption: "1915 first edition of Ku’s book", analysis: "Original title page – a direct appeal to Western intellectuals." },
+                { img: "gallery_08.jpg", caption: "1980s reprint cover", analysis: "Later editions reflect continued interest in Ku’s moral defence." },
+                { img: "gallery_09.jpeg", caption: "Chinese translation of *The Spirit*", analysis: "Re‑importation of Ku’s English text into Chinese context." },
+                { img: "gallery_10.jpg", caption: "Lin’s *My Country and My People* original English cover", analysis: "Simple, elegant – signals accessibility, not polemic." },
+                { img: "gallery_11.jpg", caption: "Bilingual edition of Lin’s work", analysis: "Designed for cross‑cultural readers; reinforces Lin’s bridging role." },
+                { img: "gallery_12.jpg", caption: "Lin Yutang's 'The Importance of Living'", analysis: "A later bestseller that introduced Chinese philosophy of life to the West." }
+            ]
+        },
+        era: {
+            title: "Ⅲ Historical Context · The Cross‑Cultural Moment",
+            desc: "Images from early 20th‑century China and Sino‑Western encounters that shaped the audience Ku and Lin addressed.",
+            items: [
+                { img: "gallery_13.jpeg", caption: "Peking University Red Building", analysis: "Site of intellectual ferment; where Ku and later Lin engaged with modern ideas." },
+                { img: "gallery_14.jpg", caption: "Old Beijing street scene", analysis: "Traditional China that both authors romanticized or critiqued." },
+                { img: "gallery_15.jpg", caption: "Sino‑Western scholars meeting", analysis: "The very setting Ku performed in and Lin later navigated." },
+                { img: "gallery_16.jpg", caption: "World War I battlefield", analysis: "Background to Ku’s critique of Western materialism." },
+                { img: "gallery_17.jpg", caption: "Cultural debate newspaper caricature", analysis: "Western caricatures of China that Ku sought to refute." },
+                { img: "gallery_18.jpeg", caption: "Late Qing missionary school", analysis: "Institutions that produced bilingual intellectuals like Lin." },
+                { img: "gallery_19.jpeg", caption: "Old city wall of Beijing", analysis: "Symbol of China’s ancient civilisation – a recurring motif in both authors’ works." },
+                { img: "gallery_20.png", caption: "Group photo of Chinese & Western scholars", analysis: "The cross‑cultural interlocutors that formed the intended audience." }
+            ]
+        }
+    };
+
+    let activeGroup = 'portraits';
+
+    function renderGallery(groupKey) {
+        const group = galleryGroups[groupKey];
+        const mainDiv = document.getElementById('galleryMain');
+        if (!mainDiv) return;
+
+        let html = `<div class="gallery-desc"><strong>${group.title}</strong><br>${group.desc}</div>`;
+        html += `<div class="gallery-grid" id="galleryGrid"></div>`;
+        mainDiv.innerHTML = html;
+
+        const grid = document.getElementById('galleryGrid');
+        group.items.forEach(item => {
+            const card = document.createElement('div');
+            card.className = 'gallery-card';
+            const img = document.createElement('img');
+            setImageSrc(img, item.img);
+            img.alt = item.caption;
+            img.onclick = () => openModal(img.src);
+            const captionDiv = document.createElement('div');
+            captionDiv.className = 'gallery-caption';
+            captionDiv.innerHTML = `<strong>${item.caption}</strong><div class="analysis-text">${item.analysis}</div>`;
+            card.appendChild(img);
+            card.appendChild(captionDiv);
+            grid.appendChild(card);
+        });
+
+        document.querySelectorAll('.gallery-tab').forEach(btn => {
+            if (btn.dataset.group === groupKey) btn.classList.add('active');
+            else btn.classList.remove('active');
+        });
+    }
+
+    function initGallerySidebar() {
+        const sidebar = document.getElementById('gallerySidebar');
+        if (!sidebar) return;
+        for (const [key, value] of Object.entries(galleryGroups)) {
+            const btn = document.createElement('button');
+            btn.className = 'gallery-tab';
+            btn.textContent = value.title;
+            btn.dataset.group = key;
+            btn.onclick = () => {
+                activeGroup = key;
+                renderGallery(key);
+            };
+            sidebar.appendChild(btn);
+        }
+        renderGallery('portraits');
+    }
+
+    initGallerySidebar();
+
+    function openModal(src) {
+        const modal = document.createElement('div');
+        modal.style.position = 'fixed';
+        modal.style.inset = '0';
+        modal.style.background = '#000000cc';
+        modal.style.backdropFilter = 'blur(8px)';
+        modal.style.display = 'flex';
+        modal.style.alignItems = 'center';
+        modal.style.justifyContent = 'center';
+        modal.style.zIndex = '1000';
+        modal.onclick = () => modal.remove();
+        const img = document.createElement('img');
+        img.src = src;
+        img.style.maxWidth = '90vw';
+        img.style.maxHeight = '80vh';
+        img.style.borderRadius = '16px';
+        modal.appendChild(img);
+        document.body.appendChild(modal);
+    }
+    window.openModal = openModal;
+</script>
+</body>
+</html>
