@@ -15,11 +15,8 @@ Key Findings
  
 Repository Structure
  
-plaintext
-  
 ├── code/          # Web visualization & text processing code
-├── database/      # Raw texts & processed research data
-├── images/        # Charts, word clouds, web UI images
-├── video/         # AI‑generated demo & web presentation videos
-└── README.md      # Project documentation
- 
+├── database/      # Raw texts & research dataset
+├── images/        # Charts, word clouds, web images
+├── video/         # AI-generated demo & presentation videos
+└── README.md
